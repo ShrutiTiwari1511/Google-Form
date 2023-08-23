@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Google Form Clone</title>
+        <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+        
+    </head>
+    <body class="bg-[#ede7f6]">
+        <div class="form max-w-screen-md mx-auto p-5" id="myForm">
+            <div class="heading border border-gray-400 rounded-lg">
+                <h1 class="border-t-4 border-purple-800 rounded-lg text-3xl mb-3">Assignment Task</h1>
+                <p class="border-t-2">The name and photo associated with your Google account will be recorded when you upload files and submit this form. Your email is not part of your response.</p>
+                <p class="border-t-2 text-red-600 mt-2 mb-1">* Indicates required question</p>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5 flex flex-col">
+                <p class="pl-3 mt-2">MCQ <span class="text-red-600">*</span></p>
+                <label class="pl-5">
+                    <input type="radio" value="Option1" name="options" required> Option 1
+                </label>
+                <label class="pl-5">
+                    <input type="radio" value="Option2" name="options" required> Option 2
+                </label>
+                <label class="pl-5 mb-3">
+                    <input type="radio" value="Option3" name="options" required> Option 3
+                </label>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5 flex flex-col">
+                <p class="pl-3 mt-2">Checkbox <span class="text-red-600">*</span></p>
+                <label class="pl-5">
+                    <input type="checkbox" value="Option1" required> Option 1
+                </label>
+                <label class="pl-5">
+                    <input type="checkbox" value="Option2" required> Option 2
+                </label>
+                <label class="pl-5 mb-3">
+                    <input type="checkbox" value="Option3" required> Option 3
+                </label>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2 mb-2">Short Answer <span class="text-red-600">*</span></p>
+                <input class="mb-4 w-1/2 ml-4 border-b-2 border-gray-400 focus:border-purple-800" type="text" placeholder="Your Answer" required>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2 mb-2">ParaGraph <span class="text-red-600">*</span></p>
+                <input class="mb-4 ml-4 w-3/4 border-b-2 border-gray-400 focus:border-purple-800" type="text" placeholder="Your Answer" required>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2">DropDown <span class="text-red-600">*</span></p>
+                <select class="w-1/2.5 ml-4 mt-2 mb-4 border border-gray-400 cursor-pointer" id="dropdown" title="select">
+                    <option value="Select" selected>Select</option>
+                    <option value="Option1">Option 1</option>
+                    <option value="Option2">Option 2</option>
+                    <option value="Option3">Option 3</option>
+                </select>
+                <p id="dropdown-error" class="error-message text-red-600 hidden">This field is required</p>
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2">File Upload <span class="text-red-600">*</span></p>
+                <label class="ml-4 mt-2 border border-gray-400" for="fileInput">
+                    
+                    <input id="fileInput" class="mb-4" type="file" placeholder="Choose File" required>
+                </label>
+                <p class="file-validation-message text-red-600 hidden pl-3">This field is required</p>
+                
+            </div>
+            <div class="ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2 mb-2">Linear Scale <span class="text-red-600">*</span></p>
+                <div class="flex justify-between">
+                    <p class="p-1">Worst</p>
+                    <label class="flex flex-col ml-2 mr-2"><span>1</span><input type="radio" value="1" required></label>
+                    <label class="flex flex-col ml-2 mr-2"><span>2</span><input type="radio" value="2" required></label>
+                    <label class="flex flex-col ml-2 mr-2"><span>3</span><input type="radio" value="3" required></label>
+                    <label class="flex flex-col ml-2 mr-2"><span>4</span><input type="radio" value="4" required></label>
+                    <label class="flex flex-col ml-2 mr-2"><span>5</span><input type="radio" value="5" required></label>
+                    <p class="p-1 mb-4">Best</p>
+                    <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+                </div>
+            </div>
+            <div class="multi-grid-option ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2 mb-2">Multi choice grid <span class="text-red-600">*</span></p>
+                <div class="grid grid-cols-4 gap-4">
+                    <div></div>
+                    <div class="text-center">Column 1</div>
+                    <div class="text-center">Column 2</div>
+                    <div class="text-center">Column 3</div>
+                    <div class="text-right">Row 1</div>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row1" value="option1" required>
+                      <span class="mt-2">Option 1</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row1" value="option2" required>
+                      <span class="mt-2">Option 2</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row1" value="option3" required>
+                      <span class="mt-2">Option 3</span>
+                    </label>
+                    <div class="text-right">Row 2</div>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row2" value="option4" required>
+                      <span class="mt-2">Option 4</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row2" value="option5" required>
+                      <span class="mt-2">Option 5</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row2" value="option6" required>
+                      <span class="mt-2">Option 6</span>
+                    </label>
+                    <div class="text-right">Row 3</div>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row3" value="option7" required>
+                      <span class="mt-2">Option 7</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row3" value="option8" required>
+                      <span class="mt-2">Option 8</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="radio" name="row3" value="option9" required>
+                      <span class="mt-2 mb-4">Option 9</span>
+                    </label>
+                </div>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+                <p class="option-validation-message text-red-600 hidden pl-3">This question requires one response per row.</p>
+            </div>
+            <div class="multi-grid-tick ques border border-gray-400 rounded-lg mt-5">
+                <p class="pl-3 mt-2 mb-2">Multi tick grid <span class="text-red-600">*</span></p>
+                <div class="grid grid-cols-4 gap-4">
+                    <div></div>
+                    <div class="text-center">Column 1</div>
+                    <div class="text-center">Column 2</div>
+                    <div class="text-center">Column 3</div>
+                    <div class="text-right">Row 1</div>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option1" required>
+                      <span class="mt-2">Option 1</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option2" required>
+                      <span class="mt-2">Option 2</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option3" required>
+                      <span class="mt-2">Option 3</span>
+                    </label>
+                    <div class="text-right">Row 2</div>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option4" required>
+                      <span class="mt-2">Option 4</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option5" required>
+                      <span class="mt-2">Option 5</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option6" required>
+                      <span class="mt-2">Option 6</span>
+                    </label>
+                    <div class="text-right">Row 3</div>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option7" required>
+                      <span class="mt-2">Option 7</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option8" required>
+                      <span class="mt-2">Option 8</span>
+                    </label>
+                    <label class="flex flex-col items-center">
+                      <input type="checkbox" name="option9" required>
+                      <span class="mt-2 mb-4">Option 9</span>
+                    </label>
+                </div>
+                <div class="ques1-error error-message text-red-600 hidden">This field is required!</div>
+                <p class="tick-validation-message text-red-600 hidden pl-3">This question requires at least one response per row.</p>
+            </div>
+            <div class="footers flex items-center justify-between">
+                <div class="flex items-center">
+                  <button class="bg-purple-800 text-md text-white m-4 pl-4 pr-4 pt-1 pb-1 rounded" type="submit" value="submit" onclick="validateForm()">Submit</button>
+                  <div class="line border-4 border-green-800 h-1 w-20 rounded"></div>
+                  <span class="ml-2">Page 1 of 1</span>
+                </div>
+                <p class="text-purple-800 cursor-pointer" onclick="clearForm()">Clear Form</p>
+            </div>
+            <p class="text-sm mt-5 ml-2">Never submit passwords through Google Forms.</p>
+            <p class="text-sm flex justify-center mt-3">
+                This content is neither created nor endorsed by Google.
+                <a class="ml-2 underline">Report Abuse</a>
+                <span class="mx-2">-</span>
+                <a class="underline">Terms of Service</a>
+                <span class="mx-2">-</span>
+                <a class="underline">Privacy Policy</a>
+            </p>
+            <h3 class="text-center text-lg my-10">
+                <a>Google Forms</a>
+            </h3>
+        </div>
+
+
+
+        <script>
+            const dropdown = document.getElementById('dropdown');
+            const dropdownError = document.getElementById('dropdown-error');
+            function scrollToElement(element) {
+                window.scrollTo({
+                behavior: 'smooth'
+                });
+            }
+            function validateForm() {
+                const requiredInputs = document.querySelectorAll('[required]');
+                let isValid = true;
+                requiredInputs.forEach(input => {
+                    const questionSection = input.closest('.ques');
+                    const errorMessage = questionSection.querySelector('.error-message');
+                    if (!input.value.trim() || (input.type === 'radio' && !document.querySelector(`[name="${input.name}"]:checked`))) {
+                        isValid = false;
+                        scrollToElement(questionSection);
+                        errorMessage.classList.remove('hidden');
+                    }
+                    else {
+                        if (input.type === 'checkbox') {
+                            const checkboxes = questionSection.querySelectorAll('input[type="checkbox"]');
+                            const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+                            if (checkboxes.length === 0 || checkedCheckboxes.length > 0) {
+                                 errorMessage.classList.add('hidden');
+                                } 
+                            else {
+                                 errorMessage.classList.remove('hidden');
+                            }
+                        }
+                        if (dropdown.value === 'Select') {
+                            isValid = false;
+                            dropdown.classList.add('border', 'border-red-600');
+                            dropdownError.classList.remove('hidden');
+                        }
+                        else {
+                            dropdown.classList.remove('border', 'border-red-600');
+                            dropdownError.classList.add('hidden');
+                        }
+                        if (input.type === 'file') {
+                            if (!input.files || input.files.length === 0) {
+                                isValid = false;
+                                scrollToElement(questionSection);
+                                errorMessage.classList.remove('hidden');
+                            }
+                            else {
+                                errorMessage.classList.add('hidden');
+                            }
+                        }
+                        input.classList.remove('border', 'border-red-600');
+                        errorMessage.classList.add('hidden');
+                   }
+                });
+                
+            }
+            const multiGridOptionOptions = document.querySelectorAll('.multi-grid-option input[name^="row"]');
+            const optionValidationMessage = document.querySelector('.option-validation-message');
+            multiGridOptionOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    const rows = {};
+                    multiGridOptionOptions.forEach(rowOption => {
+                        const rowNumber = rowOption.name.match(/\d+/)[0];
+                        if (rowOption.checked) {
+                        rows[rowNumber] = true;
+                         }
+                    });
+                    const allRowsSelected = Object.keys(rows).length === multiGridOptionOptions.length / 3;
+                    optionValidationMessage.classList.toggle('hidden', allRowsSelected);
+                });
+            });
+
+            const multiGridTickOptions = document.querySelectorAll('.multi-grid-tick input[name^="option"]');
+            const tickValidationMessage = document.querySelector('.tick-validation-message');
+            multiGridTickOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    const rows = {};
+                    multiGridTickOptions.forEach(rowOption => {
+                        const rowNumber = rowOption.name.match(/\d+/)[0];
+                        if (rowOption.checked) {
+                            rows[rowNumber] = true;
+                        }
+                    });
+                    const allRowsSelected = Object.keys(rows).length === multiGridTickOptions.length / 3;
+                    tickValidationMessage.classList.toggle('hidden', allRowsSelected);
+                });
+            });
+            function clearForm() {
+                const form = document.getElementById('myForm');
+                const allInputs = form.querySelectorAll('input, select');
+                allInputs.forEach(input => {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = false;
+                    }else if (input.tagName === 'SELECT') {
+                        input.selectedIndex = 0;
+                    } else {
+                        input.value = '';
+                    }
+                 });
+                window.location.reload();
+            }
+        </script>
+        
+        
+        
+
+    </body>
+   
+</html>
